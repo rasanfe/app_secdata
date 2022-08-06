@@ -166,7 +166,7 @@ fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 long textcolor = 33554432
-string text = "PowerBuilder 2021"
+string text = "PowerBuilder 2022"
 boolean vscrollbar = true
 borderstyle borderstyle = stylelowered!
 end type

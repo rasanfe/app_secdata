@@ -204,7 +204,7 @@ fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 long textcolor = 33554432
-string text = "PowerBuilder es un entorno de desarrollo de aplicaciones empresariales centrado en DWs."
+string text = "PowerBuilder 2022 es un entorno de desarrollo de aplicaciones empresariales centrado en DWs."
 boolean vscrollbar = true
 borderstyle borderstyle = stylelowered!
 end type
