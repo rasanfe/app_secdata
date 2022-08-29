@@ -6,6 +6,6 @@ Encoder     -------->
 Encrypting  --------> Con los nuevos objetos coderobject y crypterobeect de PowerBuilder
 Hashing     -------->
 
-Para estar al tanto de lo que publico puedes seguri mi blog:
+Para estar al tanto de lo que publico puedes seguir mi blog:
 
 https://rsrsystem.blogspot.com/
