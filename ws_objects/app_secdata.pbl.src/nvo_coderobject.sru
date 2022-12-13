@@ -8,6 +8,10 @@ global type nvo_coderobject from coderobject
 end type
 global nvo_coderobject nvo_coderobject
 
+type variables
+Encoding iEncoding = EncodingUTF8!
+end variables
+
 forward prototypes
 public function string of_base32encode (string as_value)
 public function string of_base64encode (string as_value)
@@ -26,7 +30,7 @@ end prototypes
 public function string of_base32encode (string as_value);Blob lb_value
 String ls_encode
 
-lb_value = blob(as_value, EncodingANSI!)
+lb_value = blob(as_value, iEncoding)
 
 ls_encode = base32encode(lb_value)
 
@@ -37,7 +41,7 @@ end function
 public function string of_base64encode (string as_value);Blob lb_value
 String ls_encode
 
-lb_value = blob(as_value, EncodingANSI!)
+lb_value = blob(as_value, iEncoding)
 
 ls_encode = base64encode(lb_value)
 
@@ -48,7 +52,7 @@ end function
 public function string of_base64urlencode (string as_value);Blob lb_value
 String ls_encode
 
-lb_value = blob(as_value, EncodingANSI!)
+lb_value = blob(as_value, iEncoding)
 
 ls_encode = base64urlencode(lb_value)
 
@@ -59,7 +63,7 @@ end function
 public function string of_hexencode (string as_value);Blob lb_value
 String ls_encode
 
-lb_value = blob(as_value, EncodingANSI!)
+lb_value = blob(as_value, iEncoding)
 
 ls_encode = hexencode(lb_value)
 
@@ -70,7 +74,7 @@ end function
 public function string of_urlencode (string as_value);Blob lb_value
 String ls_encode
 
-lb_value = blob(as_value, EncodingANSI!)
+lb_value = blob(as_value, iEncoding)
 
 ls_encode = urlencode(lb_value)
 
@@ -88,7 +92,7 @@ lb_value = Blob(Space(lul_len))
 
 lb_value = base32decode(as_value)
 
-ls_decode = String(BlobMid(lb_value, 1, lul_len), EncodingAnsi!)
+ls_decode = String(BlobMid(lb_value, 1, lul_len), iEncoding)
 
 RETURN ls_decode
 
@@ -104,7 +108,7 @@ lb_value = Blob(Space(lul_len))
 
 lb_value = base64decode(as_value)
 
-ls_decode = String(BlobMid(lb_value, 1, lul_len), EncodingAnsi!)
+ls_decode = String(BlobMid(lb_value, 1, lul_len), iEncoding)
 
 RETURN ls_decode
 
@@ -120,7 +124,7 @@ lb_value = Blob(Space(lul_len))
 
 lb_value = base64urldecode(as_value)
 
-ls_decode = String(BlobMid(lb_value, 1, lul_len), EncodingAnsi!)
+ls_decode = String(BlobMid(lb_value, 1, lul_len), iEncoding)
 
 RETURN ls_decode
 
@@ -136,7 +140,7 @@ lb_value = Blob(Space(lul_len))
 
 lb_value = urldecode(as_value)
 
-ls_decode = String(BlobMid(lb_value, 1, lul_len), EncodingAnsi!)
+ls_decode = String(BlobMid(lb_value, 1, lul_len), iEncoding)
 
 RETURN ls_decode
 
@@ -152,7 +156,7 @@ lb_value = Blob(Space(lul_len))
 
 lb_value = hexdecode(as_value)
 
-ls_decode = String(BlobMid(lb_value, 1, lul_len), EncodingAnsi!)
+ls_decode = String(BlobMid(lb_value, 1, lul_len), iEncoding)
 
 RETURN ls_decode
 

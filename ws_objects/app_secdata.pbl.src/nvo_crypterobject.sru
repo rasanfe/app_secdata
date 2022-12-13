@@ -9,7 +9,7 @@ end type
 global nvo_crypterobject nvo_crypterobject
 
 type variables
-
+Encoding iEncoding = EncodingUTF8!
 end variables
 
 forward prototypes
@@ -26,12 +26,12 @@ public function string of_symmetricdecryp (string as_value, string as_password);
 String ls_decrypted
 
 lblb_data = Blob(as_value)
-lblb_key  = Blob(as_password, EncodingANSI!)
-lblb_iv    = Blob("IV 0000001", EncodingANSI!)
+lblb_key  = Blob(as_password, iEncoding)
+lblb_iv    = Blob("IV 0000001", iEncoding)
 
 lblb_Decrypted = SymmetricDecrypt(AES!, lblb_data, lblb_key, OperationModeCBC!, lblb_iv, PKCSPadding!)
 
-ls_decrypted = String(lblb_Decrypted, EncodingAnsi!)
+ls_decrypted = String(lblb_Decrypted, iEncoding)
 
 Return ls_decrypted
 end function
@@ -39,9 +39,9 @@ end function
 public function string of_symmetricencrypt (string as_value, string as_password);Blob lblb_data, lblb_key, lblb_iv, lblb_Encrypted
 String ls_encrypted
 
-lblb_data = Blob(as_value, EncodingANSI!)
-lblb_key  = Blob(as_password, EncodingANSI!)
-lblb_iv    = Blob("IV 0000001", EncodingANSI!)
+lblb_data = Blob(as_value, iEncoding)
+lblb_key  = Blob(as_password, iEncoding)
+lblb_iv    = Blob("IV 0000001", iEncoding)
 
 lblb_Encrypted = SymmetricEncrypt(AES!, lblb_data, lblb_key, OperationModeCBC!, lblb_iv, PKCSPadding!)
 
@@ -54,7 +54,7 @@ public function string of_md5 (string as_value);String ls_md5
 Blob lblb_data, lblb_md5
 nvo_coderobject lnv_coderobject
 
-lblb_data = Blob(trim(as_value), EncodingANSI!)
+lblb_data = Blob(trim(as_value), iEncoding)
 
 lblb_md5 = MD5(lblb_data)
 
@@ -71,8 +71,8 @@ public function string of_hmac (string as_value, string as_password);String ls_h
 Blob lblb_data, lblb_hmac, lblb_key
 nvo_coderobject lnv_coderobject
 
-lblb_data = Blob(trim(as_value), EncodingANSI!)
-lblb_key = Blob(as_password, EncodingANSI!)
+lblb_data = Blob(trim(as_value), iEncoding)
+lblb_key = Blob(as_password, iEncoding)
 
 //Algoritmos
 //	HMACMD5! 
@@ -97,7 +97,7 @@ public function string of_sha (string as_value);String ls_sha1
 Blob lblb_data, lblb_sha1
 nvo_coderobject lnv_coderobject
 
-lblb_data = Blob(trim(as_value), EncodingANSI!)
+lblb_data = Blob(trim(as_value), iEncoding)
 
 //Algoritmos
 //	SHA1!
@@ -126,8 +126,8 @@ public function string of_asymmetricencrypt (string as_value, string as_pubkey, 
 String ls_encrypted
 nvo_coderobject  lnv_coderobject
 
-lblb_data = Blob(as_value, EncodingANSI!)
-lblb_pubKey  = Blob(as_pubkey, EncodingANSI!)
+lblb_data = Blob(as_value, iEncoding)
+lblb_pubKey  = Blob(as_pubkey, iEncoding)
 
 // Generate the private key
 AsymmetricGenerateKey(RSA!, 2048, lblb_privKey, lblb_pubkey)
@@ -159,7 +159,7 @@ Destroy  lnv_coderobject
 // Decrypt data using RSA
 lblb_Decrypted = AsymmetricDecrypt(RSA!, lblb_data, lblb_privKey)
 
-ls_decrypted = String(lblb_Decrypted, EncodingANSI!)
+ls_decrypted = String(lblb_Decrypted, iEncoding)
 
 
 Return ls_decrypted
