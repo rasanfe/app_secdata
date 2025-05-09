@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Project>
+  <Type Name="pb"/>
+  <Application Name="app_secdata"/>
+  <Libraries AppEntry="app_secdata.pbl">
+    <Library Path="app_secdata.pbl"/>
+  </Libraries>
+</Project>
